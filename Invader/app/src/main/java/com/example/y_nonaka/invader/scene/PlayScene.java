@@ -230,6 +230,13 @@ public class PlayScene extends GameSceneBase {
     }
 
     /**
+     * ゲームクリア条件を満たしたらtrueを返す
+     */
+    public boolean isGameclear() {
+        return enemies.isEmpty(); // 敵が全滅状態になったらゲームクリア
+    }
+
+    /**
      * 条件を満たしたらシーンを切り替える
      */
     @Override
@@ -237,6 +244,10 @@ public class PlayScene extends GameSceneBase {
         if (isGameover()) {
             // ゲームオーバーを条件を満たしたから、ゲームオーバーシーンへ切り替える
             GameOverScene nextScene = new GameOverScene(game);
+            manager.setNextScene(nextScene);
+        } else if (isGameclear()) {
+            // ゲームクリア条件を満たしたら、ゲームクリアシーンへ切り替える
+            GameClearScene nextScene = new GameClearScene(game);
             manager.setNextScene(nextScene);
         }
     }

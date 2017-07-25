@@ -13,32 +13,31 @@ import com.example.y_nonaka.invader.R;
  * Created by y_nonaka on 2017/07/25.
  */
 
-public class GameOverScene extends GameSceneBase {
+public class GameClearScene extends GameSceneBase {
     /**
-     * ゲームオーバー用画像
+     * ゲームクリア用画像
      */
-    Sprite gameoverImage = null;
+    Sprite gameclearImage = null;
 
     /**
      * 前のシーンを保持
      */
     SceneBase before = null;
 
-    public GameOverScene(InvaderGame game) {
+    public GameClearScene(InvaderGame game) {
         super(game);
     }
 
     @Override
     public void onSceneStart(SceneManager manager, SceneBase before) {
-
         // 前のシーンを保持しておく
         this.before = before;
 
-        // ゲームオーバー画像を読み込む
-        gameoverImage = new Sprite(loadImageDrawable(R.drawable.gameover));
+        // ゲームクリア画像を読み込む
+        gameclearImage = new Sprite(loadImageDrawable(R.drawable.gameclear));
 
         // 画像を真ん中へ移動させる
-        gameoverImage.setSpritePosition(Define.VIRTUAL_DISPLAY_WIDTH / 2, Define.VIRTUAL_DISPLAY_HEIGHT / 2);
+        gameclearImage.setSpritePosition(Define.VIRTUAL_DISPLAY_WIDTH / 2, Define.VIRTUAL_DISPLAY_HEIGHT / 2);
     }
 
     @Override
@@ -59,12 +58,13 @@ public class GameOverScene extends GameSceneBase {
         int backgroundColor = Color.toColorRGBA(0, 0, 0, 128);
         getSpriteManager().clear(backgroundColor);
 
-        // ゲームオーバー用画像を描画する
-        getSpriteManager().draw(gameoverImage);
+        // ゲームクリア用画像を描画する
+        getSpriteManager().draw(gameclearImage);
     }
     @Override
     public void onFrameEnd(SceneManager manager) {
         MultiTouchInput input = game.getMultiTouchInput();
+
         // 画面をタップしたらシーンを切り替える
         if (input.isTouchOnce()) {
             PlayScene nextScene = new PlayScene(game);
