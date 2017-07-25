@@ -241,7 +241,6 @@ public class PlayScene extends GameSceneBase {
         }
     }
 
-    
     @Override
     public void onGamePause(SceneManager manager) {
 
