@@ -67,7 +67,7 @@ public class GameClearScene extends GameSceneBase {
 
         // 画面をタップしたらシーンを切り替える
         if (input.isTouchOnce()) {
-            PlayScene nextScene = new PlayScene(game);
+            TitleScene nextScene = new TitleScene(game);
             manager.setNextScene(nextScene);
         }
     }

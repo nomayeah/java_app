@@ -21,7 +21,7 @@ public abstract class GameSceneBase extends SceneBase {
     }
 
     /**
-     * マルチタッッチ解析クラスを取得
+     * マルチタッチ解析クラスを取得
      */
 
     public MultiTouchInput getMultiTouchInput() {
